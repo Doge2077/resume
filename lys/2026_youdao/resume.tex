@@ -1,0 +1,161 @@
+% !TEX program = xelatex
+
+\documentclass{resume}
+\usepackage{xeCJK}
+
+\setCJKmainfont[
+  BoldFont = Microsoft YaHei,
+  ItalicFont = KaiTi
+]{SimSun}
+\setCJKsansfont{Microsoft YaHei}
+\setCJKmonofont{FangSong}
+
+\geometry{
+  a4paper,
+  left=0.42in,
+  right=0.42in,
+  top=0.34in,
+  bottom=0.24in,
+  nohead
+}
+
+\titleformat{\section}
+  {\Large\bfseries\raggedright}
+  {}{0em}{}
+  [\titlerule]
+
+\renewcommand{\name}[1]{
+  \centerline{{\fontsize{20}{22}\selectfont\bfseries #1}}
+  \vspace{1.0ex}
+}
+
+\renewcommand{\basicInfo}[1]{
+  \centerline{{\normalsize\sffamily #1}}
+  \vspace{0.9ex}
+}
+
+\renewcommand{\role}[2]{
+  {\par #1 \hfill #2 \par}
+  \vspace{0.45ex}
+}
+
+\newcommand{\projectrole}[2]{
+  {\par \textbf{#1 - #2}\par}
+  \vspace{0.15ex}
+}
+
+\newcommand{\lead}[1]{\textbf{#1}}
+
+\newcommand{\metric}[1]{\textbf{#1}}
+
+\newcommand{\edutag}[1]{{\scriptsize\sffamily #1}}
+
+\newcommand{\repo}[2]{\href{#2}{\texttt{#1}}}
+
+\newcommand{\triline}[3]{%
+  \noindent\makebox[\textwidth]{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.39\textwidth}p{0.35\textwidth}r@{}}
+      #1 & \centering #2 & #3
+    \end{tabular*}%
+  }\par
+}
+
+\newcommand{\workline}[3]{%
+  \noindent\makebox[\textwidth]{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.29\textwidth}p{0.47\textwidth}r@{}}
+      #1 & \centering #2 & #3
+    \end{tabular*}%
+  }\par
+}
+
+\newcommand{\openline}[3]{%
+  \noindent\makebox[\textwidth]{%
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.45\textwidth}p{0.50\textwidth}@{}}
+      #1 \quad #2 & {\makebox[0.50\textwidth][r]{\scriptsize\href{#3}{\texttt{#3}}}}
+    \end{tabular*}%
+  }\par
+}
+
+\newcommand{\youdaologo}{\raisebox{-0.18em}{\includegraphics[height=1.35em]{icon/youdao.jpeg}}}
+\newcommand{\youdaotitle}{\textbf{\fontsize{12.5}{14}\selectfont 网易有道}}
+
+\titlespacing*{\section}{0cm}{*1.0}{*0.55}
+\titlespacing*{\subsection}{0cm}{*0.9}{*0.25}
+\setlist[itemize]{topsep=0.12em, itemsep=0em, parsep=0.05em, leftmargin=1.35pc}
+
+\begin{document}
+\pagenumbering{gobble}
+\small
+\linespread{1.01}\selectfont
+
+\name{李宇森}
+
+\basicInfo{
+  \faUser\ 男 / 24 岁 \textperiodcentered\
+  \faWechat\ lys1002302241 \textperiodcentered\
+  \phone{18695813257} \textperiodcentered\
+  \homepage[lys2021.com]{https://lys2021.com/} \textperiodcentered\
+  \github[github.com/Doge2077]{https://github.com/Doge2077}}
+
+\section{\faGraduationCap\ 教育背景}
+\triline{\textbf{河南工程学院} \quad \edutag{全日制公办本科}}{计算机学院 / 计算机科学与技术}{2021.09 -- 2025.07}
+
+\section{\faTrophy\ 获奖经历}
+\datedline{网易有道2025 Q4季度\textbf{季度之星有道标兵}}{2026-01-27}
+\datedline{ACM-ICPC 国际大学生程序设计竞赛\textbf{亚洲区域赛 (武汉)} 铜奖}{2023-05-21}
+\datedline{ACM-CCPC 中国大学生程序设计竞赛\textbf{亚洲区域赛 (郑州)} 铜奖}{2024-05-12}
+
+\section{\faUsers\ 工作经历}
+\workline{\youdaologo\ \ \youdaotitle}{\textbf{人工智能产品部 / 高级算法应用工程师}}{2024.11 -- 至今}
+\role{负责文档翻译体系建设、Agent 算法优化、模型效果与成本治理，以及智能产品能力的方案设计与工程落地}{}
+\projectrole{有道翻译}{文档翻译负责人}
+\begin{itemize}
+  \item \lead{文档翻译体系建设：}从 0 到 1 设计 Markdown 文档翻译体系并建设文档解析服务，打通 PDF、Docx、Doc、PPT、PPTX、Excel 到 Markdown 的翻译链路，能力上线后带来业务 \metric{11\%} 用户流量。
+  \item \lead{自动化评测体系建设：}基于大语言模型建设文档翻译质量自动化评测体系，完成评测链路标准化与工程化，评测效率提升 \metric{25\%}，单次评测节省 \metric{4 人天}。
+  \item \lead{意图识别模型微调优化：}主导对话意图识别模型训练与调优，采用 \texttt{bert-base-chinese} 共享编码器 + 多任务分类头联合微调方案，对 30 万条真实业务 Prompt 指令完成微调，实现翻译方向、语种判断等核心意图识别。
+  \item \lead{自研算法模型成本优化：}推进自研文档解析模型结构优化，基于 Nsight Systems 分析推理热点并优化 batch 逻辑，模型性能提升 \metric{70\%}；推动 30B 模型 FP8 量化与自采 GPU 集群部署，整体成本缩减 \metric{40\%}。
+\end{itemize}
+
+\projectrole{有道 Coding Agent}{项目负责人}
+\begin{itemize}
+  \item \lead{Agent 架构设计：}负责自研 Coding Agent 方案设计，围绕执行链路、工具调用、规则治理与工程集成抽象核心架构，沉淀可落地的系统设计方案。
+  \item \lead{Agent 产品化推进：}推动 Agent Coding 能力向研发协同场景收敛，形成面向后续迭代的架构基线与工程实现路径。
+\end{itemize}
+
+\projectrole{小 P 老师}{Agent 算法优化}
+\begin{itemize}
+  \item \lead{Agent 记忆治理体系重构：}主导记忆模块重构与治理优化，创新设计三层记忆治理与“记忆陀飞轮”机制，并结合记忆压缩策略提升长上下文可用性。
+  \item \lead{Agent 人设策略优化：}设计虚拟老师人格机制并优化答疑 Agent，结合三层记忆治理与记忆压缩策略，解决多轮对话长上下文下的人格漂移问题，推动用户平均对话轮次由 \metric{1.x 提升至 6.x}，\metric{7 日留存提升至 30\%}，次日留存相对提升 \metric{10\%}。
+\end{itemize}
+
+\projectrole{有道 Notebook}{智能知识产品能力建设}
+\begin{itemize}
+  \item \lead{MCP 服务化改造：}围绕对标 Google NotebookLM 的产品方向，将文档翻译能力 MCP 服务化，实现 Markdown 翻译服务与文档解析服务接入。
+  \item \lead{RAG 系统检索优化：}推动 QAnything 检索链路优化，提升文档问答结果的信息覆盖度与答案可用性。
+\end{itemize}
+
+\section{\faGithub\ 开源贡献}
+\openline{\textbf{Dots.ocr}}{小红书 HiLab}{https://github.com/rednote-hilab/dots.ocr}
+\begin{itemize}
+  \item \lead{模型解析后处理兼容：}修复 List-item 处理逻辑错误导致的列表解析错位问题，并兼容非标准图片 base64 格式，解决图像显示异常，提升项目健壮性。
+\end{itemize}
+
+\openline{\textbf{MinerU}}{上海人工智能实验室 OpenDataLab}{https://github.com/opendatalab/MinerU}
+\begin{itemize}
+  \item \lead{解析结构适配优化：}修复中文识别字体缺失与 HTML 表格符号渲染异常问题，提升中文文档解析结果完整性、表格内容可读性与结构表达准确性。
+\end{itemize}
+
+\openline{\textbf{itbaima-robot-starter}}{违禁词匹配算法}{https://github.com/itbaima-study/itbaima-robot-starter}
+\begin{itemize}
+  \item \lead{核心算法设计与实现：}将实际问题抽象为数学模型，采用 AC 自动机实现多文本违禁词匹配能力，实测在千人大群场景下平均匹配耗时小于 \metric{5ms/条}。
+\end{itemize}
+
+\section{\faCogs\ 专业技能}
+\begin{itemize}[parsep=0.08em]
+  \item \lead{模型工程化落地：}熟练使用 Java、Python 技术栈进行服务设计与落地，具备 JVM 调优、线程池优化、MySQL 查询优化能力。
+  \item \lead{Agent 应用构建：}熟悉 Dify、LangGraph、AutoGen 等主流 Agent 应用框架，具备教育领域、AI Coding 领域 LLM 应用落地经验和记忆治理工程化设计经验。
+  \item \lead{模型部署与调优：}能够独立完成 Bert 模型意图识别任务的数据构建、训练调优与效果分析；具备模型量化和 VLLM 部署优化经验。
+  \item \lead{AI Coding 提效：}熟悉主流前沿Coding模型能力边界，掌握 SSD、MCP、Skills、Rules 等 AI Coding 协作方法。
+\end{itemize}
+
+\end{document}
