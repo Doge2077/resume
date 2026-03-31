@@ -89,12 +89,12 @@
 
 \titlespacing*{\section}{0cm}{*1.0}{*0.55}
 \titlespacing*{\subsection}{0cm}{*0.9}{*0.25}
-\setlist[itemize]{topsep=0.08em, itemsep=0em, parsep=0.02em, leftmargin=1.35pc}
+\setlist[itemize]{topsep=0.10em, itemsep=0.03em, parsep=0.04em, leftmargin=1.35pc}
 
 \begin{document}
 \pagenumbering{gobble}
 \small
-\linespread{1.00}\selectfont
+\linespread{1.05}\selectfont
 
 \name{李宇森}
 
@@ -115,19 +115,19 @@
 
 \section{\faUsers\ 工作经历}
 \workline{\youdaologo\ \ \youdaotitle}{\textbf{人工智能产品部 / 高级算法应用工程师}}{2024.11 -- 至今}
-\role{主导有道翻译、有道 Coding Agent、有道小 P 老师、有道 Notebook 等核心产品的技术迭代与业务落地，支撑公司 AI 产品矩阵的核心能力输出}{}
+\role{主导有道翻译、有道 Coding Agent、有道小 P 老师、有道宝库 等核心产品的技术迭代与业务落地，支撑公司 AI 产品矩阵的核心能力输出}{}
 \projectrole{有道翻译}{文档翻译负责人}
 \begin{itemize}
-  \item \lead{文档翻译体系建设：}从 0 到 1 设计 Markdown 文档翻译体系并建设文档解析服务，打通 PDF/Office 文档到 Markdown 的翻译链路，完成从调研选型、工程优化、架构设计到渲染评测的全流程落地，形成可复刻的标准化解决方案，能力上线后带来业务 \metric{11\%} 用户流量。
-  \item \lead{自动化评测体系建设：}基于大语言模型建设文档翻译质量自动化评测体系，完成评测链路标准化与工程化，评测效率提升 \metric{25\%}，单次评测节省 \metric{4} 人天。
-  \item \lead{意图识别模型微调优化：}主导对话意图识别模型训练与调优，采用 \texttt{bert-base-chinese} 共享编码器 + 多任务分类头联合微调方案，对 30 万条真实业务 Prompt 指令完成微调，实现翻译方向、语种判断等核心意图识别。
-  \item \lead{自研算法模型成本优化：}推进自研文档解析模型结构优化，基于 Nsight Systems 分析推理热点并优化 batch 逻辑，模型性能提升 \metric{70\%}；推动 30B 模型 FP8 量化与自采 GPU 集群部署，整体成本缩减 \metric{40\%}；通过低成本适配兼容企业现有接口并设计降级方案，降低落地成本并适配不同企业私有化资源与需求。
+  \item \lead{文档翻译体系建设：}从 0 到 1 设计 Markdown 文档翻译体系，打通 PDF/Office 文档到 Markdown 的解析链路，完成架构设计、模型选型、工程优化、高性能渲染和自动化评测的全流程落地，形成标准化、可复刻和私有化的解决方案，能力上线后带来业务 \metric{11\%} 用户流量。
+  \item \lead{自动化评测体系建设：}基于大语言模型建设文档翻译质量自动化评测体系，完成评测链路标准化与工程化，评测效率提升 \metric{50\%}，单次评测节省 \metric{10} 人天。
+  \item \lead{意图识别模型训练调优：}负责图片意图识别模型训练与调优，采用 \texttt{Qwen3.5-9B} + \texttt{QLoRA} 训练 Classifier，取得业务场景 \texttt{SOTA}，准确率超越 \texttt{Doubao-Seed-2.0-Pro} \metric{10\%}，单卡 4090D 部署吞吐为前者的 \metric{15} 倍。
+  \item \lead{自研算法模型成本优化：}推进自研文档解析模型结构优化，基于 \texttt{Nsight Systems} 分析推理热点并优化 Batch 逻辑，模型性能提升 \metric{70\%}；推动模型 FP8 量化与自采 GPU 集群部署，整体成本缩减 \metric{40\%}，大幅降低落地成本并适配不同企业私有化资源与需求。
 \end{itemize}
 
 \projectrole{有道 Coding Agent}{项目负责人}
 \begin{itemize}
   \item \lead{Agent 架构设计：}基于 Harness Engineering 最佳实践，围绕规则治理、状态控制等顶层设计，落地 SDD 驱动开发流程闭环的系统设计方案。
-  \item \lead{Contex 治理：} 设计并实现会话级别上下文隔离方案，引入渐进式工具披露架构，相较传统工具调用策略节省 \metric{30\%} tokens/round。
+  \item \lead{Session Contex 治理：} 设计并实现会话级别上下文隔离方案，引入渐进式工具披露架构，相较传统工具调用策略节省 \metric{30\%} tokens/round。
   \item \lead{Agent 产品化推进：}推动 Agent Coding 能力向研发协同场景收敛，强化内部平台 MCP 工具集成，形成面向后续迭代的架构基线与工程实现路径。
 \end{itemize}
 
@@ -137,29 +137,30 @@
   \item \lead{Agent 人设策略优化：}设计虚拟老师人格机制并优化答疑 Agent，结合三层记忆治理与记忆压缩策略，解决多轮对话长上下文下的人格漂移问题，推动用户平均对话轮次由 \metric{1.x 提升至 6.x}，\metric{7 日留存提升至 30\%}，次日留存相对提升 \metric{10\%}。
 \end{itemize}
 
-\projectrole{有道 Notebook}{智能知识产品能力建设}
+\section{\faGithub\ 开源贡献}
+
+\openline{\textbf{LobsterAI}}{有道龙虾}{https://github.com/netease-youdao/LobsterAI}
 \begin{itemize}
-  \item \lead{MCP 服务化改造：}围绕对标 Google NotebookLM 的产品方向，将文档翻译能力 MCP 服务化，实现 Markdown 翻译服务与文档解析服务接入。
-  \item \lead{RAG 系统检索优化：}推动 QAnything 检索链路优化，提升文档问答结果的信息覆盖度与答案可用性。
+  \item \lead{全局记忆持久化治理：}优化记忆体系
+  \item \lead{Claude Code 运行时优化：}解决 Claude SDK
 \end{itemize}
 
-\section{\faGithub\ 开源贡献}
 \openline{\textbf{Dots.ocr}}{小红书 HiLab}{https://github.com/rednote-hilab/dots.ocr}
 \begin{itemize}
-  \item \lead{模型解析后处理兼容：}修复 List-item 处理逻辑错误导致的列表解析错位问题，并兼容非标准图片 base64 格式，解决图像显示异常，提升项目健壮性。
+  \item \lead{模型解析后处理兼容：}修复列表解析错位问题，并兼容非标准图片 base64 格式，提升项目健壮性。
 \end{itemize}
 
 \openline{\textbf{MinerU}}{上海人工智能实验室 OpenDataLab}{https://github.com/opendatalab/MinerU}
 \begin{itemize}
-  \item \lead{解析结构适配优化：}修复中文识别字体缺失与 HTML 表格符号渲染异常问题，提升中文文档解析结果完整性、表格内容可读性与结构表达准确性。
+  \item \lead{解析结构适配优化：}优化模型输出结构，修复中文识别字体缺失与 HTML 表格符号渲染异常问题。
 \end{itemize}
 
 \section{\faCogs\ 专业技能}
 \begin{itemize}[parsep=0.08em]
   \item \lead{模型工程化落地：}熟练使用 Java、Python 技术栈进行服务设计与落地，具备 JVM 调优、线程池优化、MySQL 查询优化能力。
   \item \lead{Agent 应用构建：}熟悉 Dify、LangGraph、AutoGen 等主流 Agent 应用框架，具备教育领域、AI Coding 领域 LLM 应用落地经验和记忆治理工程化设计经验。
-  \item \lead{模型部署与调优：}能够独立完成 Bert 模型意图识别任务的数据构建、训练调优与效果分析；具备模型量化和 VLLM 部署优化经验。
-  \item \lead{AI Coding 提效：}熟悉主流前沿Coding模型能力边界，掌握 SSD、MCP、Skills、Rules 等 AI Coding 协作方法。
+  \item \lead{模型部署与调优：}能够独立完成模型SFT任务的数据构建、训练调优与效果分析；具备模型量化和 VLLM 部署优化经验。- 优化
+  \item \lead{AI Coding 提效：}熟悉主流前沿Coding模型能力边界，掌握 SDD、MCP、Skills、Rules 等 AI Coding 协作方法。
 \end{itemize}
 
 \end{document}
